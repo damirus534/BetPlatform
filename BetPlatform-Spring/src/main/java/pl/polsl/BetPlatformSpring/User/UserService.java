@@ -2,8 +2,6 @@ package pl.polsl.BetPlatformSpring.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,7 +15,7 @@ public class UserService {
     }
 
     public String addUser(User user){
-        //checking for Duplicates
+        //searching for Duplicates
         List<User> myUsers;
         myUsers = userRepository.findAll();
         for(User myUser : myUsers){
