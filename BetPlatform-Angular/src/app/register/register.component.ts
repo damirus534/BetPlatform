@@ -29,7 +29,8 @@ export class RegisterComponent implements OnInit {
     registerPassword: new FormControl('', [Validators.required])
   })
 
-  public onRegisterSubmit(){/*
+  public onRegisterSubmit(){
+
     this.userService.registerUser(this.registerUser, this.registerForm).subscribe({
       complete: () => {
         this.userService.registerUser(this.registerUser, this.registerForm).subscribe({
@@ -40,7 +41,7 @@ export class RegisterComponent implements OnInit {
         })
       }
 
-    });*/
+    });
   }
 
 

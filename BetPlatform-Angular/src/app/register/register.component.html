@@ -5,17 +5,17 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" id="registerEmail">
+        <input matInput placeholder="Email" id="registerEmail" formControlName="registerEmail">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" id="registerUsername">
+        <input matInput placeholder="Username" id="registerUsername" formControlName="registerUsername">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Password" id="registerPassword">
+        <input matInput type="password" placeholder="Password" id="registerPassword" formControlName="registerPassword">
       </mat-form-field>
 
       <button mat-raised-button type="submit">Register</button>
