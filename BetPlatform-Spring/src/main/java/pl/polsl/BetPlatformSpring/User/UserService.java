@@ -14,21 +14,21 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public String addUser(User user){
+    public int addUser(User user){
         //searching for Duplicates
         List<User> myUsers;
         myUsers = userRepository.findAll();
         for(User myUser : myUsers){
             if(myUser.getUsername().equals(user.getUsername())){
-                return "Account with this username exists";
+                return 1;//Account with this username exists
             }
             if(myUser.getEmail().equals(user.getEmail())){
-                return "Account with this email already exists";
+                return 2;//Account with this email already exists
             }
         }
         //if duplicates doesn't exists then insert account into database
         userRepository.saveAndFlush(user);
-        return "success";
+        return 0;//success
     }
 
 

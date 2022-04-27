@@ -11,10 +11,7 @@ import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 export class RegisterComponent implements OnInit {
 
   public registerUser: User = new User();
-  //public userAlreadyExists: Boolean = false;
-  //public emailIsUsed: Boolean = false;
-  //public userCreated: Boolean = false;
-  public myResponse: string = "";
+  public myResponse: number = 3;
 
 
   constructor(private userService : UserService) { }
@@ -30,8 +27,9 @@ export class RegisterComponent implements OnInit {
   })
 
   public onRegisterSubmit(){
-
-    this.userService.registerUser(this.registerUser, this.registerForm).subscribe({
+    this.userService.registerUser(this.registerUser, this.registerForm).subscribe((response)=>{
+      this.myResponse = response;
+      console.log(this.myResponse);//if good return number[0(succes),1(Account with username exists),2(email is used)] if not 3 and below error
       complete: () => {
         this.userService.registerUser(this.registerUser, this.registerForm).subscribe({
           error: console.error,

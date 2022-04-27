@@ -9,17 +9,17 @@ import {FormGroup} from "@angular/forms";
 })
 export class UserService {
 
-  private baseUrl = "http://localhost:3305/register"
-  private response=""
+  private registerUrl = "http://localhost:3305/register"
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
-  public registerUser(user: User, registerForm: FormGroup) : Observable<any>{
+  public registerUser(user: User, registerForm: FormGroup) : Observable<number>{
     user.email = registerForm.value['registerEmail'];
     user.username = registerForm.controls['registerUsername'].value;
     user.password = registerForm.controls['registerPassword'].value;
 
     console.log(registerForm);
-    return this.httpClient.post<User>(`${this.baseUrl}`, user);
+    return this.httpClient.post<number>(`${this.registerUrl}`,user)
   }
 }
